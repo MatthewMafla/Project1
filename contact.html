@@ -1,24 +1,102 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Contact Us</title>
-  <link rel="stylesheet" href="styles.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us</title>
+    <link rel="stylesheet" href="styles.css">
+
+    <script>
+        function sendMessage() {
+            let name = document.getElementById("name").value;
+            let email = document.getElementById("email").value;
+            let subject = document.getElementById("subject").value;
+            let priority = document.getElementById("priority").value;
+            let message = document.getElementById("message").value;
+
+            if (name === "" || email === "" || message === "") {
+                alert("Please fill out your name, email, and message.");
+                return;
+            }
+
+            let output = "Full Name: " + name + "\n";
+            output += "Email: " + email + "\n";
+            output += "Subject: " + subject + "\n";
+            output += "Priority: " + priority + "\n";
+            output += "Message: " + message;
+
+            document.getElementById("outputBox").value = output;
+        }
+
+        function clearForm() {
+            document.getElementById("contactForm").reset();
+            document.getElementById("outputBox").value = "";
+        }
+    </script>
 </head>
 <body>
-  <div class="container">
-    <h1>Contact Me</h1>
 
-    <p>
-      Click the email below to contact me. I look forward to hearing from you.
-    </p>
+    <div class="floating-box">
+        The best way to reach me is through email!
+    </div>
+    <div class="container">
+        <h1>Contact Me</h1>
 
-    <p>
-      <a href="mailto:matthew.mafla17@gmail.com">Send me an email</a>
-    </p>
+        <p>
+            Click the email below to contact me. I look forward to hearing from you.
+        </p>
 
-    <hr>
-  </div>
+        <p>
+            <a href="mailto:matthew.mafla17@gmail.com">Send me an email</a>
+        </p>
+
+        <h2>Contact Form</h2>
+
+        <form id="contactForm">
+            <label for="name">Full Name:</label><br>
+            <input type="text" id="name" name="name"><br><br>
+
+            <label for="email">E-mail Address:</label><br>
+            <input type="email" id="email" name="email"><br><br>
+
+            <label for="subject">Subject:</label><br>
+            <input type="text" id="subject" name="subject"><br><br>
+
+            <label for="priority">Priority:</label><br>
+            <select id="priority" name="priority">
+                <option value="Low">Low</option>
+                <option value="Medium">Medium</option>
+                <option value="High">High</option>
+            </select><br><br>
+
+            <label for="message">Message:</label><br>
+            <textarea id="message" name="message" rows="5" cols="40"></textarea><br><br>
+
+            <button type="button" onclick="clearForm()">Clear Form</button>
+            <button type="button" onclick="sendMessage()">Send Message</button>
+        </form>
+
+        <h3>Message Sent:</h3>
+        <textarea id="outputBox" rows="8" cols="50" readonly></textarea>
+
+        <h3>Contact Information</h3>
+
+<table>
+    <tr>
+        <th>Type</th>
+        <th>Details</th>
+    </tr>
+    <tr>
+        <td>Email</td>
+        <td>matthew.mafla17@gmail.com</td>
+    </tr>
+    <tr>
+        <td>LinkedIn</td>
+        <td>linkedin.com</td>
+    </tr>
+</table>
+
+        <hr>
+    </div>
 </body>
 </html>
